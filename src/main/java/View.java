@@ -26,14 +26,15 @@ public class View extends JFrame{
         return textFieldP2.getText();
     }
 
+    //res pentru wrong input
     public void setRes(String res){
         textFieldRes.setText(res);
     }
-
+    //res pentru rezultat
     public void setRes(Polynomial res){
         textFieldRes.setText(res.toString());
     }
-
+    //res pentru impartire
     public void setRes(ArrayList<Polynomial> arrayList){
         String str = "Q: " + arrayList.get(0).toString() +" R: "+ arrayList.get(1).toString();
         textFieldRes.setText(str);
@@ -56,7 +57,6 @@ public class View extends JFrame{
     public void intBtnListener(ActionListener IntBtnListener){
         intBtn.addActionListener(IntBtnListener);
     }
-
     public void derBtnListener(ActionListener DerBtnListener){
         derBtn.addActionListener(DerBtnListener);
     }
@@ -64,6 +64,9 @@ public class View extends JFrame{
     public View(Model model) {
         this.calcModel = model;
 
+        JPanel panelP0 = new JPanel(new GridLayout(1, 0));
+        JLabel labelP0 = new JLabel("Use X for variables");
+        panelP0.add(labelP0);
         JPanel panelP1 = new JPanel(new GridLayout(2,1));
         JLabel labelP1 = new JLabel("First Polynomial (mandatory)");
         panelP1.add(labelP1);
@@ -80,7 +83,8 @@ public class View extends JFrame{
         panelRes.add(labelRes);
         panelRes.add(textFieldRes);
 
-        JPanel polyPanels = new JPanel(new GridLayout(3,1));
+        JPanel polyPanels = new JPanel(new GridLayout(4,1));
+        polyPanels.add(panelP0);
         polyPanels.add(panelP1);
         polyPanels.add(panelP2);
         polyPanels.add(panelRes);

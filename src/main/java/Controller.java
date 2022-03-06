@@ -1,3 +1,5 @@
+import com.sun.deploy.security.SelectableSecurityManager;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -28,14 +30,20 @@ public class Controller {
             }
             else{
             Polynomial p1 = new Polynomial();
-            p1.string2poly(polynomial1);
-            //p1 = Model.addition(p1, blankPolynomial);
-            //p1.toString();
             Polynomial p2 = new Polynomial();
-            p2.string2poly(polynomial2);
+            if(p1.checkVariable(polynomial1) && p2.checkVariable(polynomial2) && p1.checkType(polynomial1) && p2.checkType(polynomial2))
+                {
+                p1.string2poly(polynomial1);
+                //p1 = Model.addition(p1, blankPolynomial);
+                //p1.toString();
+
+                p2.string2poly(polynomial2);
 
             Polynomial res = Model.addition(p1, p2);
-            view.setRes(res);
+            view.setRes(res);}
+            else {
+                view.setRes("Wrong input for one of the polynomials");
+                }
             }
         }
     }
@@ -87,7 +95,8 @@ public class Controller {
             String polynomial1 = view.getPoly1();
             String polynomial2 = view.getPoly2();
 
-            if(polynomial1.isEmpty() || polynomial2.isEmpty()){
+
+            if(polynomial1.isEmpty() || polynomial2.isEmpty() || polynomial2.charAt(0) == '0'){
                 view.setRes("More input needed");
             }
             else {
@@ -109,12 +118,16 @@ public class Controller {
             String polynomial1 = view.getPoly1();
             if(polynomial1.isEmpty())
                 view.setRes("More input needed for the first polynomial");
-            else{
-            Polynomial p1 = new Polynomial();
-            p1.string2poly(polynomial1);
-            //p1.toString();
-            Polynomial res = Model.integral(p1);
-            view.setRes(res);
+            else {
+                Polynomial p1 = new Polynomial();
+                p1.string2poly(polynomial1);
+                //p1.toString();
+                if (p1.toString().charAt(0) == '0' && p1.toString().length() == 1) {
+                    view.setRes("C");
+                } else {
+                    Polynomial res = Model.integral(p1);
+                    view.setRes(res);
+                }
             }
         }
     }

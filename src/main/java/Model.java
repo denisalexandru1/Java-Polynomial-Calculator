@@ -25,6 +25,31 @@ public class Model {
                 rez.monomialArrayList.add(i);
         }
         rez.removeZero();
+        rez.removeDuplicates();
+        rez.sortPoly();
+        return rez;
+    }
+
+    public static Polynomial additionForDupliicates(Polynomial p1, Polynomial p2) {
+        Polynomial rez = new Polynomial();
+        p1.sortPoly();
+        p2.sortPoly();
+
+        for (Monomial i : p1.monomialArrayList) {
+            rez.monomialArrayList.add(i);
+        }
+        for (Monomial i : p2.monomialArrayList) {
+            int ok = 0;
+            for (Monomial j : rez.monomialArrayList) {
+                if (j.getGrade() == i.getGrade()) {
+                    j.setCoef(j.getCoef() + i.getCoef());
+                    ok = 1;
+                }
+            }
+            if (ok == 0)
+                rez.monomialArrayList.add(i);
+        }
+        rez.removeZero();
         rez.sortPoly();
         return rez;
     }
@@ -52,6 +77,7 @@ public class Model {
             }
         }
         rez.removeZero();
+        rez.removeDuplicates();
         rez.sortPoly();
         return rez;
     }
@@ -72,6 +98,7 @@ public class Model {
             }
         }
         rez.sortPoly();
+        rez.removeDuplicates();
         return rez;
     }
 
@@ -100,8 +127,8 @@ public class Model {
         ArrayList<Polynomial> finalRes = new ArrayList<>();
         finalRes.add(quotient);
         finalRes.add(p1);
-        System.out.println("Q "+quotient);
-        System.out.println("R "+p1);
+        //System.out.println("Q "+quotient);
+        //System.out.println("R "+p1);
         return finalRes;
     }
 
@@ -117,6 +144,7 @@ public class Model {
             }
         }
         rez.sortPoly();
+        rez.removeDuplicates();
         return rez;
     }
 
@@ -136,6 +164,7 @@ public class Model {
         }
 
         rez.sortPoly();
+        rez.removeDuplicates();
         return rez;
     }
 
