@@ -1,11 +1,10 @@
-import javafx.collections.ModifiableObservableListBase;
+package Logic;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
-import java.util.ListIterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import Model.*;
 
 public class Polynomial {
     public ArrayList<Monomial> monomialArrayList = new ArrayList<>();

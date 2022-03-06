@@ -1,5 +1,9 @@
+package Model;
+
+import Logic.Monomial;
+import Logic.Polynomial;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Model {
 

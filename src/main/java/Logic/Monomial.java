@@ -1,3 +1,5 @@
+package Logic;
+
 public class Monomial implements Comparable<Monomial>{
     private Integer grade;
     private Double coef;

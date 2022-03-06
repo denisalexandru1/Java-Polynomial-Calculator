@@ -1,14 +1,18 @@
+package UI;
+
 import com.sun.deploy.security.SelectableSecurityManager;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import Model.*;
+import Logic.*;
 
 public class Controller {
     private Model model;
     private View view;
 
-    Controller(Model model, View view){
+    public Controller(Model model, View view){
         this.model = model;
         this.view = view;
 
@@ -24,7 +28,7 @@ public class Controller {
         public void actionPerformed(ActionEvent e){
             String polynomial1 = view.getPoly1();
             String polynomial2 = view.getPoly2();
-            //Polynomial blankPolynomial = new Polynomial();
+            //Logic.Polynomial blankPolynomial = new Logic.Polynomial();
             if(polynomial1.isEmpty() || polynomial2.isEmpty()){
                 view.setRes("More input needed");
             }
@@ -34,7 +38,7 @@ public class Controller {
             if(p1.checkVariable(polynomial1) && p2.checkVariable(polynomial2) && p1.checkType(polynomial1) && p2.checkType(polynomial2))
                 {
                 p1.string2poly(polynomial1);
-                //p1 = Model.addition(p1, blankPolynomial);
+                //p1 = Model.Model.addition(p1, blankPolynomial);
                 //p1.toString();
 
                 p2.string2poly(polynomial2);

@@ -1,8 +1,12 @@
+package UI;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import Model.*;
+import Logic.*;
 
 public class View extends JFrame{
     private JButton addBtn = new JButton("+");
@@ -68,12 +72,12 @@ public class View extends JFrame{
         JLabel labelP0 = new JLabel("Use X for variables");
         panelP0.add(labelP0);
         JPanel panelP1 = new JPanel(new GridLayout(2,1));
-        JLabel labelP1 = new JLabel("First Polynomial (mandatory)");
+        JLabel labelP1 = new JLabel("First Logic.Polynomial (mandatory)");
         panelP1.add(labelP1);
         panelP1.add(textFieldP1);
 
         JPanel panelP2 = new JPanel(new GridLayout(2,1));
-        JLabel labelP2 = new JLabel("Second Polynomial (optional)");
+        JLabel labelP2 = new JLabel("Second Logic.Polynomial (optional)");
         panelP2.add(labelP2);
         panelP2.add(textFieldP2);
         //panelP2.setVisible(true);
@@ -115,7 +119,7 @@ public class View extends JFrame{
         //finalPanel.setVisible(true);
         this.setContentPane(finalPanel);
         this.pack();
-        this.setTitle("Polynomial Calculator");
+        this.setTitle("Logic.Polynomial Calculator");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
