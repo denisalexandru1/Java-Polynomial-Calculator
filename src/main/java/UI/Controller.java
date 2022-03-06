@@ -125,7 +125,6 @@ public class Controller {
             else {
                 Polynomial p1 = new Polynomial();
                 p1.string2poly(polynomial1);
-                //p1.toString();
                 if (p1.toString().charAt(0) == '0' && p1.toString().length() == 1) {
                     view.setRes("C");
                 } else {

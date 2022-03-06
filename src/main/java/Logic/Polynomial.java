@@ -102,7 +102,7 @@ public class Polynomial {
     public boolean checkVariable(String polyString){
         polyString = polyString.replaceAll("\\s+", "");
         polyString = polyString.toLowerCase();
-        System.out.println("aici "+polyString);
+        //System.out.println("aici "+polyString);
         String patternString = "[a-zA-Z]";
         Pattern pattern = Pattern.compile(patternString);
         Matcher matcher = pattern.matcher(polyString);
